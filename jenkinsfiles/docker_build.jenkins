@@ -11,6 +11,22 @@ pipeline {
 		timestamps()
 	}
 	stages {
+		stage("Docker Login") {
+			steps {
+				echo "\n============= Docker Login =============\n"
+				withCredentials([
+					usernamePassword(
+						credentials: 'dockerhub_bargamut',
+						usernameVariable: 'USERNAME',
+						passwordVariable: 'PASSWORD'
+					)
+				]) {
+					sh """
+						docker login -u $USERNAME -p $PASSWORD
+					"""
+				}
+			}
+		}
 		stage("Create Doker image") {
 			steps {
 				echo "\n============= Start building image =============\n"
