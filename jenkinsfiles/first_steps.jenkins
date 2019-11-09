@@ -15,6 +15,11 @@ pipeline {
 				sh 'ssh jenkins-bot1@vps1.majordomo.barg \'hostname\''
 			}
 		}
+		stage("Second step") {
+			steps {
+				sh 'ssh jenkins-bot1@vps1.majordomo.barg \'uptime\''
+			}
+		}
 	}
 }
 
