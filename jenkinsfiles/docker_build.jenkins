@@ -15,7 +15,7 @@ pipeline {
 			steps {
 				echo "\n============= Start building image =============\n"
 				dir ('docker/toolbox') {
-					sh 'docker build -t test-jenkins/alpine-with-packages:latest . '
+					sh 'docker build -t bargamut/learning:latest . '
 				}
 			}
 		}
