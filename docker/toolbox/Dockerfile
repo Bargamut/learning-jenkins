@@ -5,7 +5,8 @@ RUN apk add --no-cache \
 	busybox-extras \
 	netcat-openbsd \
 	python \
-	py-pip
+	py-pip \
+	postgresql-client
 RUN pip install awscli
 RUN apk --purge -v del py-pip
 CMD tail -f /dev/null
