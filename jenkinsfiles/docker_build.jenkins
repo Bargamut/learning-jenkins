@@ -35,6 +35,12 @@ pipeline {
 				}
 			}
 		}
+		stage("Doker Push") {
+			steps {
+				echo "\n============= Docker Push =============\n"
+				sh 'docker push bargamut/learning:latest'
+			}
+		}
 	}
 }
 
