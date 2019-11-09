@@ -1,0 +1,24 @@
+#!groovy
+properties([disableConcurrentBuilds()])
+
+pipeline {
+	agent {
+		label 'master'
+	}
+	options {
+		buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+		timestamps()
+	}
+	stages {
+		stage("Create Doker image") {
+			steps {
+				prinf "\n============= Start building image =============\n"
+				dir ('docker/toolbox') {
+					sh 'docker build . '
+				}
+			}
+		}
+	}
+}
+
+// See more: https://jenkins.io/doc/book/pipeline/
