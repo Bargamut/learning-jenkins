@@ -16,7 +16,7 @@ pipeline {
 				echo "\n============= Docker Login =============\n"
 				withCredentials([
 					usernamePassword(
-						credentials: 'dockerhub_bargamut',
+						credentialsId: 'dockerhub_bargamut',
 						usernameVariable: 'USERNAME',
 						passwordVariable: 'PASSWORD'
 					)
